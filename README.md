@@ -2,34 +2,44 @@
 
 A full-stack Cafe Menu and Order Management System built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
 
+## Live Project Links
+
+- **Frontend:** https://cafe-menu-order-gamma.vercel.app/
+- **Backend:** https://cafe-menu-order.onrender.com/
+- **Swagger API Documentation:** https://cafe-menu-order.onrender.com/api/docs
+
 ## Features
 
 ### Customer Features
-- View cafe menu items.
+
+- View cafe menu items dynamically.
 - Search menu items by name.
 - Filter items by category.
-- Sort items by price.
+- Sort items by price (Low to High / High to Low).
 - Add items to cart.
 - Increase or decrease item quantity.
 - Remove items from cart.
 - Automatically calculate total amount.
 - Place orders using customer name and phone number.
-- QR code for accessing the menu.
+- QR code for accessing the cafe menu.
+- Checkout form for customer details.
+- Display order and loading messages.
 
 ### Admin / Backend Features
+
 - Add new menu items.
 - View all menu items.
 - Update menu items.
 - Delete menu items.
 - Place customer orders.
-- Retrieve all orders.
+- Retrieve all customer orders.
 - Update order status.
 - API documentation using Swagger.
 - Input validation and error handling.
 
 ## Technology Stack
 
-**Frontend**
+### Frontend
 - React.js
 - JavaScript
 - HTML
@@ -37,24 +47,26 @@ A full-stack Cafe Menu and Order Management System built using the MERN Stack (M
 - Axios
 - React Router
 
-**Backend**
+### Backend
 - Node.js
 - Express.js
-- REST API
+- REST APIs
 - Mongoose
 
-**Database**
+### Database
 - MongoDB Atlas
 
-**Tools**
+### Tools
 - Visual Studio Code
 - Postman
 - Swagger UI
 - Git and GitHub
+- Vercel
+- Render
+- cron-job.org
 
 ## Project Structure
 
-```text
 cafe-menu-order/
 │
 ├── backend/
@@ -63,24 +75,26 @@ cafe-menu-order/
 │   │   ├── controllers/
 │   │   ├── models/
 │   │   └── routes/
+│   ├── .env.example
 │   ├── server.js
 │   └── package.json
 │
 ├── frontend/
 │   ├── src/
 │   ├── public/
+│   ├── .env.example
 │   └── package.json
 │
 ├── .gitignore
 └── README.md
-```
+
 
 ## Installation and Setup
 
 ### 1. Clone Repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/anjirathod24-tech/cafe-menu-order.git
 cd cafe-menu-order
 ```
 
@@ -91,14 +105,16 @@ cd backend
 npm install
 ```
 
-Create a `.env` file inside the backend folder:
+Create a `.env` file inside the backend folder using `.env.example` as a reference.
+
+Configure your environment variables:
 
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_atlas_connection_string
 ```
 
-Start backend:
+Start the backend server:
 
 ```bash
 npm run dev
@@ -117,13 +133,15 @@ cd frontend
 npm install
 ```
 
-Create a `.env` file inside the frontend folder:
+Create a `.env` file inside the frontend folder using `.env.example` as a reference.
+
+Configure the API URL:
 
 ```env
 VITE_API_URL=http://localhost:5000
 ```
 
-Start frontend:
+Start the frontend:
 
 ```bash
 npm run dev
@@ -149,28 +167,70 @@ Frontend runs at:
 | Method | Endpoint | Description |
 |---|---|---|
 | POST | `/api/orders` | Place a new order |
-| GET | `/api/orders` | Get all orders |
+| GET | `/api/orders` | Get all customer orders |
 | PUT | `/api/orders/:id/status` | Update order status |
 
 ## API Documentation
 
-Swagger documentation is available at:
+Swagger API documentation is available at:
 
-`http://localhost:5000/api/docs`
+https://cafe-menu-order.onrender.com/api/docs
 
 ## Database
 
-MongoDB Atlas is used to store menu items and customer orders.
+MongoDB Atlas is used as the database host.
+
+Mongoose models are used to manage:
+
+- Menu items
+- Customer orders
+- Order items and quantities
+- Prices and total amount
+- Order status
+
+## Deployment
+
+- **Frontend:** Deployed on Vercel.
+- **Backend:** Deployed on Render.
+- **Database:** Hosted on MongoDB Atlas.
+- **Scheduled Keep-Alive:** cron-job.org sends a scheduled HTTP request to the backend to help keep the Render service active.
+## Screenshots
+
+### Cafe Homepage
+![Cafe Homepage](./Screenshots/cafe-delight.png)
+
+### Menu
+![Menu](./Screenshots/menu.png)
+
+### Menu Filter
+![Menu Filter](./Screenshots/menu-filter-view.png)
+
+### Search Menu
+![Search Menu](./Screenshots/search-menu.png)
+
+### QR Code
+![QR Code](./Screenshots/scan.png)
+
+### Checkout
+![Checkout](./Screenshots/checkout.png)
+
+### Order Success
+![Order Success](./Screenshots/success.png)
+
+## Environment Variables
+
+The project includes:
+
+- `backend/.env.example`
+- `frontend/.env.example`
+
+Create your own `.env` files using these examples before running the project locally.
+
+**Note:** Do not upload actual passwords, database credentials, or secret environment variables to GitHub.
 
 ## Author
 
 Developed as a Cafe Menu & Order Management System project using the MERN Stack.
 
-## Application Screenshots
-!cafe-delight.jpg
-!menu.jpg
-!scan.jpg
-!menu-filter-view.jpg
-!checkout.jpg
-!search-menu.jpg
-!success.jpg
+**GitHub Repository:**  
+https://github.com/anjirathod24-tech/cafe-menu-order
